@@ -37,6 +37,11 @@
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
             <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+            <!-- Below 2 lines is used for require permission for an older version(under v.12) -->
+            <uses-permission android:name="android.permission.BLUETOOTH"
+                     android:maxSdkVersion="30" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+                     android:maxSdkVersion="30" />
         </config-file>
         <!-- END Edit AndroidManifest.xml -->
 
