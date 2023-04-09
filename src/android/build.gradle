@@ -11,8 +11,3 @@ dependencies {
     implementation(name: 'blesdk-release_v3.0', ext: 'aar')
 }
 
-plugins { 
-   //fixing: The binary version of its metadata expected 1.6
-  id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
-
-}
