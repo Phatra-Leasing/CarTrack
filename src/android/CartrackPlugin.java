@@ -300,7 +300,13 @@ public class CartrackPlugin extends CordovaPlugin implements BleListener {
                 return;
             }
         }  
-       
+        // Handle the case when all permissions are granted
+        // For test only
+        CallbackContext callbackContext = CallbackContextList.get(CallbackTypes.REQUEST_PERMISSIONS);
+            if (callbackContext != null) {
+                callbackContext.success();
+            }
+        // For test only
     }
 
     public boolean hasPermisssion() {
