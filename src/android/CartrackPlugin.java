@@ -41,9 +41,18 @@ public class CartrackPlugin extends CordovaPlugin implements BleListener {
     public static final int PERMISSION_DENIED_ERROR = 20;
 
     protected final static String[] permissions = {
+        
+        /*
+        Master
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION,
         Manifest.permission.BLUETOOTH
+        */ 
+        
+        Manifest.permission.BLUETOOTH_CONNECT,
+        Manifest.permission.BLUETOOTH_ADMIN,
+        Manifest.permission.BLUETOOTH
+
     };
 
     enum CallbackTypes{
