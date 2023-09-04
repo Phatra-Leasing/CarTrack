@@ -35,22 +35,13 @@
 
         <!-- Edit AndroidManifest.xml -->
         <config-file target="AndroidManifest.xml" parent="/*">
-            <!-- this part commend cause of testing android version 12+ 
-             //Below 2 lines is used for require permission for an older version(under v.12)
-            
+            <!-- Below 2 lines is used for require permission for an older version(under v.12) -->
             <uses-permission android:name="android.permission.BLUETOOTH"
                      android:maxSdkVersion="30" />
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
                      android:maxSdkVersion="30" />
             <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
             <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-
-            this part commend cause of testing android version 12+-->
-
-        <!-- this part use for test android all version -->
-            <uses-permission android:name="android.permission.BLUETOOTH"/>
-            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
         </config-file>
         <!-- END Edit AndroidManifest.xml -->
 
