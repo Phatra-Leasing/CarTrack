@@ -164,9 +164,6 @@ public class CartrackPlugin extends CordovaPlugin implements BleListener {
     }
 
     private void requestPermissions(CallbackContext callbackContext){
-        /*
-         *****This part is use before edit******
- 
         CallbackContextList.put(CallbackTypes.REQUEST_PERMISSIONS, callbackContext);
         if (hasPermisssion()) {
             callbackContext.success();
@@ -181,21 +178,7 @@ public class CartrackPlugin extends CordovaPlugin implements BleListener {
         } else {
             callbackContext.error("Please configure BLE terminal");
         }
-        *****This part is use before edit******
-        */
 
-        CallbackContextList.put(CallbackTypes.REQUEST_PERMISSIONS, callbackContext);
-            // Check if Bluetooth permissions are already granted
-        if (hasPermisssion()) {
-            callbackContext.success();
-        } else {
-            // Request Bluetooth permissions
-        ActivityCompat.requestPermissions(this, new String[]{
-                Manifest.permission.BLUETOOTH,
-                Manifest.permission.BLUETOOTH_ADMIN,
-                Manifest.permission.BLUETOOTH_CONNECT
-             }, START_REQ_CODE);
-        }
     }
 
     @Override
@@ -295,8 +278,6 @@ public class CartrackPlugin extends CordovaPlugin implements BleListener {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) throws JSONException {
-        /*                 This part use before tesing permission
-        
         for (int r : grantResults) {
             if (r == PackageManager.PERMISSION_DENIED) {
                 Log.d(TAG, "Permission Denied!");
@@ -310,29 +291,7 @@ public class CartrackPlugin extends CordovaPlugin implements BleListener {
                 return;
             }
         }  
-                        This part use before tesing permission
-        */
-        /* start new code */
-        for (int r : grantResults) {
-        if (r == PackageManager.PERMISSION_DENIED) {
-            Log.d(TAG, "Permission Denied!");
-            PluginResult result = new PluginResult(PluginResult.Status.ERROR, PERMISSION_DENIED_ERROR);
-
-            CallbackContext callbackContext = CallbackContextList.get(CallbackTypes.REQUEST_PERMISSIONS);
-
-            if (callbackContext != null) {
-                callbackContext.sendPluginResult(result);
-            }
-            return;
-        }
-    }
-    // Handle the case when all permissions are granted
-        CallbackContext callbackContext = CallbackContextList.get(CallbackTypes.REQUEST_PERMISSIONS);
-            if (callbackContext != null) {
-                callbackContext.success();
-            }
-        /* end new code */
-        
+       
     }
 
     public boolean hasPermisssion() {
